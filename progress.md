@@ -7,32 +7,32 @@
 ## Phase 1 — 백엔드 MSA 기반
 
 ### 1-1. PostgreSQL DDL
-- [ ] users 테이블
-- [ ] refresh_tokens 테이블
-- [ ] categories 테이블
-- [ ] todos 테이블
-- [ ] subtasks 테이블
-- [ ] tags 테이블
-- [ ] todo_tags 테이블
-- [ ] todo_comments 테이블
-- [ ] todo_templates 테이블
-- [ ] time_logs 테이블
-- [ ] attachments 테이블
-- [ ] 초기 관리자 계정 seed 데이터
+- [x] users 테이블
+- [x] refresh_tokens 테이블
+- [x] categories 테이블
+- [x] todos 테이블
+- [x] subtasks 테이블
+- [x] tags 테이블
+- [x] todo_tags 테이블
+- [x] todo_comments 테이블
+- [x] todo_templates 테이블
+- [x] time_logs 테이블
+- [x] attachments 테이블
+- [x] 초기 관리자 계정 seed 데이터
 
 ### 1-2. Auth Service
-- [ ] Gradle 프로젝트 셋업 (Spring Boot 3.x, Java 25)
-- [ ] Entity: User, RefreshToken
-- [ ] Repository: UserRepository, RefreshTokenRepository
-- [ ] POST /api/auth/login (ID/Password → JWT 발급)
-- [ ] POST /api/auth/refresh (토큰 갱신)
-- [ ] POST /api/auth/logout (refresh token 무효화)
-- [ ] GET /api/auth/me (현재 유저 정보)
-- [ ] POST /api/auth/users (계정 추가 — 관리자 전용)
-- [ ] DELETE /api/auth/users/{id} (계정 삭제 — 관리자 전용)
-- [ ] GET /api/auth/users (계정 목록 — 관리자 전용)
-- [ ] JwtService (발급/검증)
-- [ ] SecurityConfig (BCrypt, 필터 체인)
+- [x] Gradle 프로젝트 셋업 (Spring Boot 3.x, Java 25)
+- [x] Entity: User, RefreshToken
+- [x] Repository: UserRepository, RefreshTokenRepository
+- [x] POST /api/auth/login (ID/Password → JWT 발급)
+- [x] POST /api/auth/refresh (토큰 갱신)
+- [x] POST /api/auth/logout (refresh token 무효화)
+- [x] GET /api/auth/me (현재 유저 정보)
+- [x] POST /api/auth/users (계정 추가 — 관리자 전용)
+- [x] DELETE /api/auth/users/{id} (계정 삭제 — 관리자 전용)
+- [x] GET /api/auth/users (계정 목록 — 관리자 전용)
+- [x] JwtService (발급/검증)
+- [x] SecurityConfig (BCrypt, 필터 체인)
 
 ### 1-3. API Gateway
 - [ ] Gradle 프로젝트 셋업

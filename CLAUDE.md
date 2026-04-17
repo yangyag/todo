@@ -10,6 +10,17 @@ https://github.com/yangyag/todo
 
 IT 회사 내부용 할일 관리 웹 서비스. 자체 계정 관리(ID/Password) 로그인, 개인별 할일 CRUD + 달력 뷰, 반응형 웹/모바일.
 
+## Subagent Workflow
+
+`AGENTS.md`는 **서브에이전트용 지침서**다. 메인 세션(Claude Code)에게 적용되는 규칙이 아니라, 메인 세션이 서브에이전트를 띄울 때 각 서브에이전트가 지켜야 할 역할(`planner / generator / evaluator`)과 경계를 정의한다.
+
+- 메인 세션은 본 `CLAUDE.md`를 기준으로 직접 작업을 수행한다. 모든 작업을 강제로 `planner/generator/evaluator`로 쪼개지 않는다.
+- 서브에이전트를 띄울 경우에는 해당 에이전트에게 `AGENTS.md`의 관련 역할 규칙을 브리핑한다 (예: generator는 테스트 실행/판정 금지, evaluator만 실행·판정 담당 등).
+
+### Commit
+
+`git commit`이 필요한 경우 커밋 메시지는 항상 한글로 작성한다.
+
 ## Architecture
 
 MSA 구조로 3개 서비스가 분리된다:

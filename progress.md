@@ -35,10 +35,10 @@
 - [x] SecurityConfig (BCrypt, 필터 체인)
 
 ### 1-3. API Gateway
-- [ ] Gradle 프로젝트 셋업
-- [ ] JwtAuthFilter (JWT 검증 → X-User-Id 헤더 주입)
-- [ ] 라우팅 규칙 (auth, todos, categories, tags, templates, dashboard)
-- [ ] CORS 설정
+- [x] Gradle 프로젝트 셋업
+- [x] JwtAuthFilter (JWT 검증 → X-User-Id 헤더 주입)
+- [x] 라우팅 규칙 (auth, todos, categories, tags, templates, dashboard)
+- [x] CORS 설정
 
 ### 1-4. Todo Service 기본
 - [ ] Gradle 프로젝트 셋업

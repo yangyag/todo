@@ -1,12 +1,15 @@
 # Todo App 구현 진행 현황
 
-> plan.md 기반 체크리스트. 각 단계 완료 시 `[ ]` → `[x]`로 변경.
+> plan.md 기반 체크리스트.
+> 체크 표시는 현재 저장소에 실제로 존재하는 구현, 설정, DDL, 시드 파일 기준이다. 목표 구조만 정의되어 있고 아직 구현 근거가 없는 항목은 `[ ]`로 유지한다.
 
 ---
 
 ## Phase 1 — 백엔드 MSA 기반
+상태 요약: `일부 완료`
 
 ### 1-1. PostgreSQL DDL
+상태: `완료`
 - [x] users 테이블
 - [x] refresh_tokens 테이블
 - [x] categories 테이블
@@ -21,6 +24,7 @@
 - [x] 초기 관리자 계정 seed 데이터
 
 ### 1-2. Auth Service
+상태: `완료`
 - [x] Gradle 프로젝트 셋업 (Spring Boot 3.x, Java 25)
 - [x] Entity: User, RefreshToken
 - [x] Repository: UserRepository, RefreshTokenRepository
@@ -35,12 +39,14 @@
 - [x] SecurityConfig (BCrypt, 필터 체인)
 
 ### 1-3. API Gateway
+상태: `완료`
 - [x] Gradle 프로젝트 셋업
 - [x] JwtAuthFilter (JWT 검증 → X-User-Id 헤더 주입)
 - [x] 라우팅 규칙 (auth, todos, categories, tags, templates, dashboard)
 - [x] CORS 설정
 
 ### 1-4. Todo Service 기본
+상태: `미착수`
 - [ ] Gradle 프로젝트 셋업
 - [ ] Entity: Todo, Category
 - [ ] Repository: TodoRepository, CategoryRepository
@@ -54,6 +60,7 @@
 - [ ] 대시보드 upcoming (GET /api/dashboard/upcoming)
 
 ### 1-5. Todo Service 확장
+상태: `미착수`
 - [ ] Entity: Subtask, Tag, TodoComment, TodoTemplate, TimeLog, Attachment
 - [ ] 서브태스크 CRUD (/api/todos/{todoId}/subtasks)
 - [ ] 태그 CRUD (/api/tags + todo-tag 연결)
@@ -66,8 +73,10 @@
 ---
 
 ## Phase 2 — 프론트엔드
+상태 요약: `미착수`
 
 ### 2-1. 프로젝트 셋업
+상태: `미착수`
 - [ ] Vite + React 18 + TypeScript 초기화
 - [ ] Tailwind CSS v3 설정
 - [ ] shadcn/ui 설치 및 설정
@@ -77,11 +86,13 @@
 - [ ] 라우터 설정 (ProtectedRoute 포함)
 
 ### 2-2. 로그인 페이지
+상태: `미착수`
 - [ ] ID/Password 입력 폼
 - [ ] 로그인 API 연동 → JWT 저장
 - [ ] 로그인 실패 에러 처리
 
 ### 2-3. 할일 목록 페이지
+상태: `미착수`
 - [ ] TodoList 컴포넌트 (카드 형태)
 - [ ] 카테고리/태그 사이드바
 - [ ] 필터 (completed, priority, category, tag, assignee, due_date)
@@ -92,6 +103,7 @@
 - [ ] 할일 생성 폼
 
 ### 2-4. 할일 상세 뷰
+상태: `미착수`
 - [ ] 할일 기본 정보 표시/수정
 - [ ] 서브태스크 체크리스트
 - [ ] 댓글 타임라인
@@ -101,11 +113,13 @@
 - [ ] 태그 추가/제거
 
 ### 2-5. 달력 페이지
+상태: `미착수`
 - [ ] FullCalendar 월/주 뷰
 - [ ] 할일 이벤트 표시
 - [ ] 드래그로 due_date 변경
 
 ### 2-6. 대시보드 페이지
+상태: `미착수`
 - [ ] 통계 카드 (전체/완료/기한초과/이번주)
 - [ ] 오늘 마감 할일 목록
 - [ ] 7일 내 마감 할일 목록
@@ -113,14 +127,17 @@
 ---
 
 ## Phase 3 — 반응형 + 배포
+상태 요약: `미착수`
 
 ### 3-1. 반응형 레이아웃
+상태: `미착수`
 - [ ] 모바일 하단 탭 네비게이션
 - [ ] 데스크톱 사이드바
 - [ ] 터치 제스처 대응
 - [ ] 다크모드 (시스템 감지 + 수동 토글)
 
 ### 3-2. Docker + 배포
+상태: `미착수`
 - [ ] Dockerfile: front
 - [ ] Dockerfile: api-gateway
 - [ ] Dockerfile: auth-service
@@ -133,6 +150,7 @@
 ---
 
 ## Phase 4 — 추후 개선
+상태 요약: `미착수`
 - [ ] 칸반 보드 뷰
 - [ ] 타임라인(간트) 뷰
 - [ ] 팀 대시보드

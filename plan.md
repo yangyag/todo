@@ -317,7 +317,32 @@ Gateway에서 `X-User-Id: {uuid}` 헤더를 주입해서 전달.
 
 ---
 
-## 프로젝트 디렉토리 구조
+## 현재 저장소 상태
+
+> 2026-04-17 기준으로 실제 저장소에는 아래 구조가 확인된다. `front/`, `back/todo-service/`, `docker-compose.yml`은 아직 없다. 목표 구조는 다음 섹션에 별도로 정리한다.
+
+```
+todo-app/
+├── back/
+│   ├── api-gateway/
+│   │   ├── src/main/resources/application.yml
+│   │   └── src/main/java/.../filter/JwtAuthFilter.java
+│   └── auth-service/
+│       ├── src/main/resources/application.yml
+│       ├── src/main/java/.../controller/AuthController.java
+│       └── src/main/java/.../controller/AdminUserController.java
+├── db/
+│   └── init/
+│       ├── 00_schema.sql
+│       └── 01_seed.sql
+└── nginx/
+```
+
+---
+
+## 목표 프로젝트 디렉토리 구조
+
+> 목표 최상위 구조는 `front/`와 `back/`를 유지한다. 현재는 이 목표 중 `back/auth-service`, `back/api-gateway`, `db/init` 일부만 구현되어 있고 나머지는 단계적으로 채운다.
 
 ```
 todo-app/
@@ -336,30 +361,26 @@ todo-app/
 │   ├── api-gateway/                       # Spring Cloud Gateway
 │   │   └── src/main/
 │   │       ├── resources/
-│   │       │   └── application.yml        # 라우팅 규칙, JWT 검증 필터 설정
+│   │       │   └── application.yml        # 라우팅 규칙, CORS, JWT 설정
 │   │       └── java/.../
-│   │           ├── filter/                # JwtAuthFilter.java
-│   │           └── config/                # GatewayConfig.java, CorsConfig.java
+│   │           └── filter/                # JwtAuthFilter.java
 │   │
 │   ├── auth-service/                      # Spring Boot + JWT (자체 계정 관리)
 │   │   └── src/main/java/.../
-│   │       ├── controller/                # AuthController.java, UserManageController.java
-│   │       ├── service/                   # AuthService.java, JwtService.java, UserService.java
+│   │       ├── controller/                # AuthController.java, AdminUserController.java
+│   │       ├── service/                   # AuthService.java, UserManagementService.java
+│   │       ├── security/                  # JwtService.java, JwtAuthenticationFilter.java
 │   │       ├── entity/                    # User.java, RefreshToken.java
 │   │       ├── repository/                # UserRepository.java, RefreshTokenRepository.java
 │   │       └── config/                    # SecurityConfig.java
 │   │
 │   └── todo-service/                      # Spring Boot JPA
 │       └── src/main/java/.../
-│           ├── controller/                # TodoController, CategoryController, DashboardController,
-│           │                              #   SubtaskController, CommentController, TagController,
-│           │                              #   TimerController, TemplateController, AttachmentController
-│           ├── service/                   # TodoService, CategoryService, SubtaskService, CommentService,
-│           │                              #   TagService, TimerService, TemplateService, AttachmentService
-│           ├── entity/                    # Todo, Category, Subtask, Tag, TodoComment,
-│           │                              #   TodoTemplate, TimeLog, Attachment
-│           ├── repository/                # 각 entity 대응 Repository
-│           └── dto/                       # 각 기능별 Create/Update/Response DTO
+│           ├── controller/                # 할일/카테고리/대시보드/부가 기능 API
+│           ├── service/                   # 도메인 서비스 계층
+│           ├── entity/                    # Todo, Category, Subtask, Tag, TodoComment 등
+│           ├── repository/                # 도메인별 Repository
+│           └── dto/                       # 기능별 요청/응답 DTO
 │
 ├── nginx/
 │   └── nginx.conf
